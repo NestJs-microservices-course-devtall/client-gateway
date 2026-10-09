@@ -1,0 +1,67 @@
+
+# PRODUCTS
+### 
+POST http://localhost:3000/api/products HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+name=Pecho2&price=1002
+
+
+### 
+#  get all products
+GET http://localhost:3000/api/products?page=2&limit=5 HTTP/1.1
+
+
+###
+# get one product
+GET  http://localhost:3000/api/products/5 HTTP/1.1
+
+
+###
+PATCH http://localhost:3000/api/products/1
+Content-Type: application/x-www-form-urlencoded
+
+name=Tphone&price=12344
+
+
+###
+DELETE http://localhost:3000/api/products/8
+
+
+
+# ORDERS
+
+### create orderπ
+POST http://localhost:3000/api/orders HTTP/1.1
+Content-Type: application/json
+
+{ "items": [
+  {
+  "productId":1,
+  "price": 50,
+  "quantity": 4
+  }] 
+}
+### 
+#  get all orders
+GET http://localhost:3000/api/orders?page=2&limit=5&status=PENDING HTTP/1.1
+
+###
+GET http://localhost:3000/api/orders/PENDING
+
+###
+# get one order
+GET  http://localhost:3000/api/orders/id/a8ec1e59-98c7-429f-a836-c01cebace3a9 HTTP/1.1
+
+
+###
+PUT http://localhost:3000/api/orders/1
+Content-Type: application/x-www-form-urlencoded
+
+
+### 
+#change status order
+PATCH http://localhost:3000/api/orders/13cd354f-6ad8-4c73-b9dd-5181ff73afaf
+Content-Type: application/x-www-form-urlencoded
+
+status=CANCELLED
